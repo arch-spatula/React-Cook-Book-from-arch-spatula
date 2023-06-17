@@ -20,7 +20,7 @@ npm create vite@latest
 yarn create vite . --template react-swc-ts
 ```
 
-하지만 저는 위 명령 스타일을 선호합니다.
+하지만 저는 위 명령 스타일을 선호합니다. 참고로 `.`은 현재 디렉토리를 의미합니다. 그래서 현재 파일 디렉토리에서 생성 명령을 내린 것입니다.
 
 ## Create React App a.k.a. CRA
 
