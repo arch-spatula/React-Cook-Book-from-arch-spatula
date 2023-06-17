@@ -38,6 +38,58 @@ npx create-react-app .
 yarn create react-app . --template typescript
 ```
 
+---
+
+## 부록
+
+리액트를 설치하기 위해 따로 필요한 것들이 있습니다. node, 패키지 매니저가 필요합니다. 이것은 선택과 무관하게 필요합니다. 또 있으면 리액트 코드를 작성하기 쉬워지는 것들도 있습니다.
+
+### node
+
+[node.js 공식 홈페이지](https://nodejs.org/ko)
+
+공식 홈페이지에서 LTS버전을 설치하면 됩니다.
+
+시키는대로 설치하고 다음 명령으로 확인해봅니다.
+
+```sh
+node --version
+```
+
+```sh
+npm --version
+```
+
+node를 설치하면 자동적으로 npm 패키지 매니저도 설치됩니다.
+
+<!--
+
+TODO: homebrew 설치법
+
+-->
+
+### nvm
+
+node의 버전은 상당히 다양합니다. 그리고 버전별로 동작이 달라질 수 있습니다.
+
+### yarn
+
+```sh
+npm install -g yarn
+```
+
+```sh
+yarn -v
+```
+
+yarn은 페이스북이 만든 패키지 매니저입니다. pnpm도 있습니다. 취향것 사용하면 됩니다.
+
+<!--
+
+TODO: 프리티어 설치 & 설정
+
+-->
+
 <!--
 
 TODO: CDN 설치법 추가하기
