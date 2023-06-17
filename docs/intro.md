@@ -2,46 +2,34 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 리액트
 
-Let's discover **Docusaurus in less than 5 minutes**.
+리액트를 접근하고 다루는 방식은 다양합니다.
 
-## Getting Started
+프론트엔드 엔지니어가 본인 스스로 리액트 엔지니어라는 정체성을 갖는 경우도 있습니다. 하나의 사고방식이고 이해하고 존중할 수 있습니다. 하지만 저는 저를 자바스크립트를 잘 다루는 프론트엔드 엔지니어라고 여기고 싶습니다. 아마 미래에는 리액트의 시대가 저물고 새로운 프레임워크 혹은 라이브러리가 산업 표준이 될 수 있습니다. 또 자바스크립트 마저 새로운 언어로 대체될 수 있다고 생각합니다.
 
-Get started by **creating a new site**.
+리액트는 소비하기 위해 만들어진 라이브러리입니다. 생각보다 소박한 라이브러리이지만 작은 우주가 내부에 있습니다. 그런 측면에서 깊게 공부할 필요가 있는 라이브러리입니다.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 2023년에 리액트
 
-### What you'll need
+2022년 State of JavaScript 설문 조사에서 리액트의 점유율 최고입니다.[^1] 많은 사람들이 사용하고 있습니다. 지금 시점에서 왜 리액트를 사용하는가? 저에게 질문한다면 저는 리액트는 생태계 때문에 사용해야 한다고 답할 것입니다.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Virtual DOM 시대(React, Vue, Angular)에서 컴파일 시대(Svelte, Solid, Qwik)가 되었습니다.
 
-## Generate a new site
+SPA 시대(React, Vue, Angular)에서 메타프레임워크 시대(Next, Remix, Nuxt, SvelteKit, Qwik City, Soild Start)가 되었습니다.
 
-Generate a new Docusaurus site using the **classic template**.
+시대는 바뀌고 생각도 바뀝니다. 그리고 바뀔 것입니다.
 
-The classic template will automatically be added to your project after you run the command:
+## 리액트를 탐구한다는 것
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+리액트를 탐구한다는 것은 단순하게 리액트만을 탐구한다는 것을 의미하기 어럽습니다. 리액트는 다른 라이브러리와 함께 조합해서 사용합니다. 즉 생태계에 대한 탐구가 필요합니다.
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+라이브러리이기 때문에 프레임워크처럼 독선적이지 않습니다. 잘 만들어진 프레임워크는 훌륭한 안목을 갖고 독선적인입니다. 귀도 반 로섬처럼 자비로운 종신독재자로 훌륭한 결정들을 대신 내려줄 수 있습니다. 하지만 문제는 자비롭지 않고 훌륭하지 않은 안목을 갖을 수 있습니다. 리액트는 라이브러리의 소비자의 안목에 모든 것이 달려있습니다. 이런 측면에서 리액트는 민주적입니다. 국민이 훌륭한 결정을 내려 좋은 나라를 만드는 것과 유사합니다. 단지 문제는 국민이 훌륭하지 못한 결정을 내릴 가능성이 많다는 점입니다.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+리액트를 배운다는 것은 훌륭한 결정을 내리기 위해 각각의 선택지를 이해한다는 것입니다. 즉 리액트만이 아니라 리액트 생태계를 이해한다는 것입니다.
 
-## Start your site
+### 리액트의 동작 원리
 
-Run the development server:
+리액트의 동작원리를 탐구한다는 것은 작은 우주를 탐구하려는 것과 유사합니다. 비교적 소박한 라이브러리의 깊고 심오한 이해가 필요합니다. 페이스북을 만든 기업 meta가 만든 라이브러리입니다. 엄청나게 많고 또 엄청나게 유능한 이 시대의 최고 지성인 인력이 투입되었습니다(~~페이스북의 정치적 결정은 논외로 합니다~~). 이 인력이 작은 우주를 만들 수 있는 것은 당연합니다.
 
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+[^1]: [2022 State of JavaScript - Front-end Frameworks](https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/)
