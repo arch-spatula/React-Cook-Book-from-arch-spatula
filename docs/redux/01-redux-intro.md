@@ -635,12 +635,12 @@ yarn add react-router-dom
 ```txt
 ├── src/
 │   ├── pages/
-│       ├── Home.jsx
-│       ├── About.jsx
-│       ├── Contact.jsx
-│       └── Works.jsx
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   └── Works.jsx
 │   ├── shared/
-│       └── Router.js
+│   │   └── Router.js
 │   ├── App.js
 │   └── index.js
 ```
@@ -766,7 +766,7 @@ export default Works;
 
 `<Link></Link>`는 JSX에서 a태그랑 동일한 기능을 지원해줍니다.
 
-[<Link> - 공식 문서링크](https://reactrouter.com/en/6.4.4/components/link)
+[Link 태그 - 공식 문서링크](https://reactrouter.com/en/6.4.4/components/link)
 
 ```js
 import { Link, useLocation } from 'react-router-dom';
