@@ -2,6 +2,16 @@
 sidebar_position: 1
 ---
 
+# 리덕스(Redux)
+
+리덕스는 리액트의 상태관리 라이브러리 중 하나로 reducer와 ducks pattern을 결합한 의미를 갖습니다.
+
+리덕스의 몇가지 장점은 중 하나는 하나의 state가 다른 state와 서로 강하게 결합관계를 갖을 수 밖에 없을 때 reducer로 비교적 처리가 수월하게 할 수 있습니다. 다른 하나는 데이터의 흐름이 단방향이라는 장점을 갖습니다.
+
+하지만 단점도 있습니다. 불필요하게 복잡한 state를 만들어 낼 수 있다는 것입니다. ducks pattern으로 하나의 store에서 모든 state를 접근해야 합니다.
+
+이것은 문화권마다 다르지만 미국권에서는 리덕스는 코드 작성량이 많은 것(verbose)도 단점이라고 지적합니다.
+
 ## Redux part 1
 
 리덕스의 장점 중 하나는 전역으로 State를 관리할 수 있습니다. 훨씬더 복잡한 앱을 만들 수 있습니다.
@@ -1053,6 +1063,161 @@ export default Router;
 
 이렇게 접근가능하도록 Route 설정을 하면 끝납니다.
 
-# 예습 키워드
+## 예습 키워드
 
 redux-toolkit, JSON server, axios, thunk, optimizing custom hook
+
+## React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial
+
+[React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial](https://www.youtube.com/watch?v=NqzdVN2tyvQ)
+
+리덕스 제작자는 RTK를 사용하기를 권장합니다. 불필요한 복잡성이 늘어난다고 합니다.
+
+```sh
+npm install redux react-redux @reduxjs/toolkit
+```
+
+리덕스랑 리덕스 store는 혼용해서 사용하는 용어입니다. 자바스크립트의 불변 객체 트리 컨테이너입니다. 복수의 store는 가능하지만 권장하지 않습니다.
+
+```js
+// store.js 설정
+import { configureStore } from '@reduxjs/toolkit';
+
+export const store = configureStore({
+  reducer: {},
+});
+```
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+```
+
+index.jsx를 이렇게 작성하면 전역으로 state를 주고 받을 수 있습니다. useContext랑 유사합니다.
+
+슬라이스는 리덕스 state 객체를 여러 객체로 쪼갠다는 개념에서 부릅니다. 이런 로직은 각자 다르게 처리하기 때문에 각자 슬라이스를 갖습니다.
+
+```js
+// features/counter/counterSlice.js
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  count: 0,
+};
+
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => (state.count += 1),
+    decrement: (state) => (state.count -= 1),
+  },
+});
+
+export const { increment, decrement } = counterSlice.actions;
+
+export default counterSlice.reducer;
+```
+
+```js
+import { configureStore } from '@reduxjs/toolkit';
+
+import counterReducer from '../features/counter/counterSlice';
+
+export const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+  },
+});
+```
+
+store에 이렇게 연결합니다.
+
+컴포넌트와 기능 단위로 폴더를 정리합니다.
+
+```jsx
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  increment,
+  decrement,
+  reset,
+  incrementByAmount,
+} from './counter/counterSlice';
+
+const Counter = () => {
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
+  const [incrementAmount, setIncrementAmount] = useState(0);
+  const addValue = Number(incrementAmount) || 0;
+  const resetAll = () => {
+    dispatch(reset());
+    setIncrementAmount(0);
+  };
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => dispatch(increment())}>-</button>
+      <button onClick={() => dispatch(decrement())}>+</button>
+      <input
+        type="number"
+        value={incrementAmount}
+        onChange={(event) => setIncrementAmount(event.target.value)}
+      />
+      <button onClick={() => resetAll()}>Reset</button>
+      <button onClick={() => dispatch(incrementByAmount(addValue))}>
+        Add Amount
+      </button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+
+```js
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  count: 0,
+};
+
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.count += 1;
+    },
+    decrement: (state) => {
+      state.count -= 1;
+    },
+    reset: (state) => {
+      state.count = 0;
+    },
+    incrementByAmount: (state, action) => {
+      state.count += action.payload;
+    },
+  },
+});
+
+export const { increment, decrement, incrementByAmount, reset } =
+  counterSlice.actions;
+
+export default counterSlice.reducer;
+```
+
+[react_redux_toolkit / 01_lesson/](https://github.com/gitdagray/react_redux_toolkit/tree/main/01_lesson)
